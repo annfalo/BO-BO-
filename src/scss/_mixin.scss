@@ -1,0 +1,145 @@
+@use './variables' as *;
+
+// タッチデバイス（モバイル、タブレット専用）
+@mixin touch {
+    @media (max-width: $desktop - 1px) {
+        @content;
+    }
+}
+
+// モバイル専用
+@mixin mobile {
+    @media (max-width: $mobile - 1px) {
+        @content;
+    }
+}
+
+// タブレット専用
+@mixin tablet {
+    @media (min-width: $mobile) and (max-width: $desktop - 1px) {
+        @content;
+    }
+}
+
+// デスクトップ専用
+@mixin desktop {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+
+// ワイドデスクトップ専用
+@mixin wide {
+    @media (min-width: $wide) {
+        @content;
+    }
+}
+
+// =======================================================
+// アニメーション
+
+//hover 画像半透明
+@mixin ov {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+        opacity: 0.7;
+
+        img {
+            background-color: rgba(#fff, 0.01);
+        }
+    }
+}
+
+//hover 画像拡大
+@mixin ov_zoomimg {
+    @include desktop {
+        overflow: hidden;
+
+        img {
+            transition: all 0.3s ease-in;
+        }
+    }
+
+    &:hover {
+        img {
+            @include desktop {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+//丸キャプション
+@mixin marucap {
+    background-color: $white;
+    border-radius: 50px;
+    padding: .5rem 1rem;
+    border: 1px solid $color_primary;
+}
+
+//hover　キャプション表示
+@mixin cap {
+    position: relative;
+
+    &:hover {
+        .c_card__body {
+            display: block;
+        }
+    }
+
+    .c_card__body {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: none;
+        width: 100%;
+
+        @include mobile {
+            display: block;
+        }
+    }
+}
+
+//グルグル
+@mixin guruguru ($time: 2s) {
+    @keyframes guruguru {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    animation: guruguru $time linear infinite;
+}
+
+// =======================================================
+// フォント
+
+// Lato
+@mixin font-webfont_Lato {
+    font-family: "Lato", sans-serif;
+}
+
+//日本語
+@mixin font-JP_sans {
+    font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, sans-serif;
+}
+
+//フォントサイズ(rem優先)
+@mixin fz($size, $base: 16) {
+    font-size: #{$size}px;
+    font-size: calc($size / $base) * 1rem;
+}
+
+/* ===============================================
+# 装飾
+=============================================== */
+@mixin frame {
+    border: 2px solid $color_primary;
+    border-radius: 20px;
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>CART | BO-BO-(ボーボー)</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- 電話番号検知無効化 -->
+    <meta name="format-detection" content="telephone=no">
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Quintessential&display=swap"
+        rel="stylesheet">
+    <!--CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+
+<body>
+    <div class="l_container">
+        <header class="l_header">
+            <div class="l_header__inner">
+                <!-- ナビ -->
+                <nav class="l_gnav">
+                    <ul class="l_gnav__list">
+                        <li class="l_gnav__item"><a href="./"><img src="assets/img/common/house.png" alt=""></a>
+                        </li>
+                        <li class="l_gnav__item"><a href="archive.html">NEWS</a></li>
+                        <li class="l_gnav__item"><a href="about.html">ABOUT</a></li>
+                        <li class="l_gnav__item"><a href="form.html"><img src="assets/img/common/mail.png" alt=""></a>
+                        </li>
+                        <li class="l_gnav__item"><a href="cart.html"><img src="assets/img/common/cart.png" alt=""></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!-- パンくず -->
+        <div class="l_breadcrumb">
+            <ul class="l_breadcrumb__list">
+                <li class="l_breadcrumb__item"><a href="#">Home</a></li>
+                <li class="l_breadcrumb__item"><a href="#">Online Shop</a></li>
+                <li class="l_breadcrumb__item _current"><a href="#"><strong>カート</strong></a></li>
+            </ul>
+        </div>
+
+        <main class="l_main">
+            <div class="l_container">
+                <section class="c_section c_cart">
+                    <div class="c_section__header">
+                        <h2 class="c_section__headerTitle">Cart</h2>
+                    </div>
+                    <div class="c_cart__inner">
+                        <div class="c_cart__list">
+                            <div class="c_cart__item">
+                                <a href="detail.html" class="c_cart__itemLink">
+                                    <picture class="c_cart__itemThumb">
+                                        <source type="image/webp
+                                        " srcset="assets/img/card/flower02.webp">
+                                        <img src="assets/img/card/flower02.jpg" alt="サムネイル画像：サボテン寄せ植え">
+                                    </picture>
+                                    <div class="c_cart__itemBody">
+                                        <h3 class="c_cart__itemTitle">サボテン寄せ植え</h3>
+                                        <p class="c_cart__itemPrice">¥3,800</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="c_cart__item">
+                                <a href="detail.html" class="c_cart__itemLink">
+                                    <picture class="c_cart__itemThumb">
+                                        <source type="image/webp
+                                        " srcset="assets/img/card/flower03.webp">
+                                        <img src="assets/img/card/flower05.jpg" alt="サムネイル画像：スタッフ おまかせアレンジ">
+                                    </picture>
+                                    <div class="c_cart__itemBody">
+                                        <h3 class="c_cart__itemTitle">スタッフ おまかせアレンジ</h3>
+                                        <p class="c_cart__itemPrice">¥3,800</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="c_cart__item">
+                                <a href="detail.html" class="c_cart__itemLink">
+                                    <picture class="c_cart__itemThumb">
+                                        <source type="image/webp
+                                        " srcset="assets/img/card/flower01.webp">
+                                        <img src="assets/img/card/flower01.jpg" alt="サムネイル画像：太白丸（金属鉢つき）">
+                                    </picture>
+                                    <div class="c_cart__itemBody">
+                                        <h3 class="c_cart__itemTitle">太白丸（金属鉢つき）</h3>
+                                        <p class="c_cart__itemPrice">¥3,800</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <ul class="c_cart__price">
+                            <li class="c_cart__priceItem"><span class="c_cart__priceText">送料</span>¥500</li>
+                            <li class="c_cart__priceItem"><span class="c_cart__priceText">合計</span>¥11,900</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="c_section c_memberLogin">
+                    <div class="c_section__header">
+                        <h2 class="c_section__headerTitle">Member Login</h2>
+                    </div>
+                    <form class="c_form" action="">
+                        <div class="c_form__group">
+                            <label for="member_id " class="c_form__label">会員ID/メールアドレス</label>
+                            <input type="text" class="c_form__input" id="member_id" name="member_id"
+                                placeholder="テキストが入ります。" autocapitalize="none" autocorrect="off" spellcheck="false"
+                                required>
+                        </div>
+                        <div class="c_form__group">
+                            <label for="member_password" class="c_form__label">パスワード</label>
+                            <input type="password" id="member_password" name="member_password" required>
+                        </div>
+                        <div class="e_btnWrap">
+                            <button class="e_btn _brown" type="button">ログインして購入する</button>
+                            <p class="e_btnWrap__note"><a href="#">新規会員登録して購入する</a></p>
+                        </div>
+                    </form>
+                </section>
+
+        </main>
+        <footer class="l_footer">
+            <div class="l_footer__inner">
+                <nav class="l_footer__nav">
+                    <div class="l_footer__navBody">
+                        <div class="l_footer__navName">Online Shop</div>
+                        <ul class="l_footer__navList">
+                            <li class="l_footer__navItem"><a href="#">Category</a></li>
+                            <li class="l_footer__navItem"><a href="#">Category</a></li>
+                            <li class="l_footer__navItem"><a href="#">Category</a></li>
+                        </ul>
+                    </div>
+                    <div class="l_footer__navBody">
+                        <div class="l_footer__navName">News</div>
+                        <ul class="l_footer__navList">
+                            <li class="l_footer__navItem"><a href="#">Info</a></li>
+                            <li class="l_footer__navItem"><a href="#">Event</a></li>
+                            <li class="l_footer__navItem"><a href="#">Media</a></li>
+                        </ul>
+                    </div>
+                    <div class="l_footer__navBody">
+                        <div class="l_footer__navName">Store</div>
+                        <ul class="l_footer__navList">
+                            <li class="l_footer__navItem"><a href="#">About</a></li>
+                            <li class="l_footer__navItem"><a href="#">Access</a></li>
+                            <li class="l_footer__navItem"><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <small class="l_footer__copy">
+                    &copy; company name
+                </small>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>

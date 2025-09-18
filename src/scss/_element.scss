@@ -1,0 +1,63 @@
+@use './variables' as*;
+@use './mixin' as*;
+
+
+a,
+button,
+input {
+    &.e_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 52px;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: bold;
+        height: 50px;
+        transition: .3s ease-in-out;
+        border-radius: 24px;
+        @include fz(16);
+
+        @include desktop {
+            padding: 0 70px;
+        }
+
+        &+& {
+            margin-left: 10px;
+        }
+
+        //色
+        &.white {
+            color: #000;
+            background-color: #fff;
+            border: 1px solid #000;
+
+            &:hover {
+                color: #fff;
+                background-color: #000;
+            }
+        }
+
+        &_white-ol {
+            color: #fff;
+            background-color: transparent;
+            border: 2px solid #fff;
+        }
+
+        &.brown {
+            background-color: $color_primary;
+            color: #fff;
+            border: 1px solid $color_primary;
+
+            &:hover {
+                color: $color_primary;
+                background-color: #fff;
+            }
+        }
+    }
+}
+
+.e_btnWrap__note {
+    text-align: center;
+    margin-top: 0.5rem;
+}

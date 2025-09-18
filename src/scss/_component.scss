@@ -1,0 +1,1146 @@
+@use './variables' as *;
+@use './mixin' as *;
+
+/* ===============================================
+# キービジュアル
+=============================================== */
+.c_kv {
+    overflow: hidden;
+    width: 98.5vw;
+    position: relative;
+    @include frame;
+    margin: 0 auto;
+    max-height: 700px;
+
+    &__inner {
+        width: 100vw;
+
+        @include desktop {
+            width: 99vw;
+            margin: 0 auto;
+        }
+
+
+        img {
+            object-fit: cover;
+            margin: 0 auto;
+        }
+    }
+
+    //スライドショーのスタイル
+    .swiper-container {
+        width: 99vw;
+
+        .swiper-slide {
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            height: inherit;
+            margin: 0 auto;
+
+            @include desktop {
+                min-width: inherit;
+            }
+
+            picture {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .swiper-pagination {
+            bottom: 0px;
+            position: absolute;
+        }
+
+        .swiper-button-white {
+            width: 50px;
+            height: 50px;
+            background: #000;
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            opacity: 1;
+
+            &.swiper-pagination-bullet-active {
+                background-color: $color_accent;
+            }
+        }
+    }
+}
+
+/* ===============================================
+# セクション
+=============================================== */
+.section-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+
+    @include mobile {
+        flex-direction: column;
+    }
+}
+
+.c_section {
+    height: 570px;
+    width: 50vw;
+
+    @include mobile {
+        width: 100vw;
+        height: initial;
+    }
+
+    &__header {
+        position: relative;
+        text-align: center;
+        @include frame;
+        padding: 1rem;
+        background-color: $yellow;
+        height: 70px;
+        letter-spacing: .5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include mobile {
+            height: 50px;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background-color: #9b87a9;
+            bottom: 0;
+            left: 50%;
+            translate: -50% 0;
+        }
+
+        &Title {
+            text-transform: uppercase;
+            @include fz(18);
+            @include font-webfont_Lato;
+
+            @include desktop {
+                @include fz(30);
+            }
+        }
+    }
+}
+
+/* ===============================================
+# カード
+=============================================== */
+// カード
+.c_cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 500px;
+
+    @include mobile {
+        height: initial;
+    }
+
+    .c_card {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        overflow: hidden;
+
+        &__link {
+            display: block;
+            text-decoration: none;
+
+            .img-wrapper {
+                @include ov_zoomimg;
+                @include frame;
+                width: 25vw;
+                height: 180px;
+
+                @include mobile {
+                    width: 50vw;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 20px;
+                }
+            }
+        }
+
+        &__body {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            margin-top: -2px;
+
+            span {
+                @include fz(12);
+                @include marucap;
+                background-color: $color_accent;
+                word-break: keep-all;
+
+                @include mobile {
+                    @include fz(9);
+                }
+            }
+
+            time {
+                @include fz(12);
+                @include marucap;
+                background-color: $green04;
+
+                @include mobile {
+                    @include fz(8);
+                    padding: 0.5rem;
+                }
+            }
+        }
+
+        &__title {
+            transition: color 0.2s;
+            background-color: $white;
+            @include frame;
+            padding: .5rem 1rem;
+            @include fz(14);
+            word-break: keep-all;
+
+            @include mobile {
+                @include fz(12);
+            }
+        }
+
+        &__price {
+            line-height: 1;
+            color: $green03;
+            text-align: right;
+            @include fz(14);
+            background-color: $green05;
+            @include frame;
+            border-top: 1px;
+            padding: .5rem 1rem;
+        }
+    }
+}
+
+/* ===============================================
+# シーズン
+=============================================== */
+.seasonal {
+    .c_section__header {
+        background-color: $pink;
+    }
+
+    .c_cards {
+        &__item {
+            @include cap;
+            @include ov_zoomimg;
+            position: relative;
+
+            img {
+                height: 500px;
+                object-fit: cover;
+                @include frame;
+                width: 25vw;
+
+                @include mobile {
+                    width: 50vw;
+                }
+            }
+        }
+    }
+}
+
+/* ===============================================
+# アバウト
+=============================================== */
+.about {
+    height: 500px;
+
+    @include mobile {
+        flex-direction: row;
+    }
+
+    .contact {
+        width: 40vw;
+
+        .c_cards__item {
+            width: 40vw;
+            height: 330px;
+            background-color: $color_accent;
+            @include frame;
+
+            &:hover {
+                background-color: $magenta;
+            }
+
+            img {
+                width: 10vw;
+
+                @include mobile {
+                    width: 20vw;
+                }
+            }
+
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+            }
+
+            @include mobile {
+                height: 350px;
+            }
+        }
+
+        .brank {
+            position: relative;
+            height: 100px;
+            width: 40vw;
+            background-color: transparent;
+
+            &:before {
+                content: '板橋区にあります。';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $green01;
+                @include fz(14);
+                letter-spacing: .3rem;
+            }
+        }
+    }
+
+    .access {
+        width: 60vw;
+        height: 500px;
+
+        .c_section__header {
+            background-color: $green03;
+            color: $white;
+        }
+
+        .map {
+            position: relative;
+            width: 60vw;
+            height: 430px;
+            margin: 0 auto;
+
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 59.8vw;
+                height: 430px;
+                border-radius: 20px;
+                box-shadow: 0 0 0 1px $color_primary;
+
+                @include mobile {
+                    height: 450px;
+                }
+
+            }
+        }
+    }
+}
+
+/* ===============================================
+# コラム
+=============================================== */
+.column {
+    height: 370px;
+
+    @include mobile {
+        height: 350px;
+    }
+
+    .c_section {
+        width: 100vw;
+        overflow: hidden;
+
+        &__header {
+            background-color: $green01;
+        }
+
+        .c_card__title {
+            word-break: break-all;
+        }
+
+        .c_cards {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr)100px;
+
+            @include mobile {
+                grid-template-columns: repeat(3, 1fr)50px;
+
+            }
+
+            img {
+                width: 100%;
+                object-fit: cover;
+                height: 300px;
+                border-radius: 20px;
+
+                &:nth-last-child(1) {
+                    object-fit: contain;
+                }
+            }
+
+            &__item {
+                display: block;
+                @include ov_zoomimg;
+                height: 300px;
+                @include frame;
+                @include cap;
+
+                &:nth-last-child(1) {
+                    background-color: $green02;
+
+                    &:hover {
+                        background-color: $magenta;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ===============================================
+# カテゴリー・ニュース
+=============================================== */
+.c_category {
+    height: 1570px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+
+    @include mobile {
+        height: 1070px;
+    }
+
+    .category {
+        width: 20vw;
+
+        .c_section__header {
+            background-color: $color_accent;
+
+            h2 {
+                letter-spacing: .1rem;
+
+                @include mobile {
+                    @include fz(12);
+                }
+            }
+        }
+
+        .c_cards {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 1500px;
+
+            @include mobile {
+                height: 1000px;
+            }
+
+            &__item {
+                width: 20vw;
+                @include cap;
+                position: relative;
+
+                &:hover {
+                    @include guruguru(3s);
+                }
+
+
+                img {
+                    display: block;
+                    width: 20vw;
+                    height: 300px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    filter: saturate(1.3);
+                    border: 2px solid $color_primary;
+
+                    @include mobile {
+                        height: 200px;
+                    }
+                }
+
+                p {
+                    position: absolute;
+                    word-break: keep-all;
+                    top: 85%;
+                    left: 50%;
+                    font-weight: bold;
+                    transform: translate(-50%, -50%);
+                    background-color: $yellow;
+                    padding: .3rem 1rem;
+                    border-radius: 50px;
+                    border: 1px solid $color_primary;
+
+                    @include mobile {
+                        @include fz(13);
+                        padding: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    //ニュース
+    .news {
+        width: 80vw;
+
+        .c_card {
+            &__title {
+                word-wrap: break-word;
+
+            }
+        }
+
+        .c_cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            height: 1500px;
+
+            @include mobile {
+                height: 1000px;
+            }
+
+            &__item {
+                @include cap;
+                @include ov_zoomimg;
+                position: relative;
+                @include frame;
+
+                @include mobile {
+                    border: none;
+                }
+
+                &:nth-child(1) {
+                    grid-area: 1 / 1 / 3 / 5;
+                }
+
+                &:nth-child(2) {
+                    grid-area: 3 / 1 / 4 / 3;
+                }
+
+                &:nth-child(3) {
+                    grid-area: 4 / 1 / 6 / 3;
+                }
+
+                &:nth-child(4) {
+                    grid-area: 3 / 3 / 6 / 5;
+                    border-radius: 50% 50% 20px 20px;
+                    box-shadow: 0 0 0 1px $color_primary;
+                }
+
+                &:nth-child(5) {
+                    grid-area: 6 / 1 / 7 / 4;
+                }
+
+                &:nth-child(6) {
+                    grid-area: 6 / 4 / 7 / 5;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 20px;
+
+                    @include mobile {
+                        @include frame;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ===============================================
+# 商品詳細
+=============================================== */
+.c_detail {
+
+    &__inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1200px;
+        flex-direction: column;
+        margin: 0 auto;
+        padding: 50px 1rem 80px;
+
+        @include desktop {
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+    }
+
+
+    &__main {
+        position: relative;
+        width: 100%;
+        height: auto;
+
+        @include desktop {
+            max-width: 600px;
+        }
+    }
+
+    &__slide {
+        .swiper-slide {
+            @include frame;
+
+            @include desktop {
+                height: 600px;
+            }
+
+            img {
+                object-fit: cover;
+                border-radius: 20px;
+            }
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            width: 50px;
+            height: 50px;
+            @include ov;
+
+            &:after {
+                content: '';
+                display: block;
+                width: 50px;
+                height: 50px;
+                background: url(../img/common/arrow.png) no-repeat center center/cover;
+            }
+        }
+
+        .swiper-button-prev {
+            rotate: 180deg;
+        }
+    }
+
+    &__thumbs {
+        display: none;
+
+        @include desktop {
+            display: block;
+            max-height: 100px;
+            overflow: hidden;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        //サムネイルスライド
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            width: 100px;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include frame;
+            border-radius: 15px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            img {
+                width: 100px;
+                height: auto; //おまけ
+                border-radius: 15px;
+            }
+        }
+
+        .swiper-slide-thumb-active {
+            border: 3px solid $magenta;
+        }
+
+    }
+
+    &__contents {
+        display: flex;
+        align-items: center;
+        padding-bottom: 20px;
+        margin: 0 20px;
+
+        @include desktop {
+            padding-bottom: 70px;
+            padding-left: 5%;
+            margin: 0 30px;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+
+        @include desktop {
+            margin-top: 30px;
+        }
+
+        @include mobile {
+            width: 90vw;
+        }
+    }
+
+    &__title {
+        font-weight: bold;
+        margin-top: 30px;
+        @include fz(20);
+        line-height: 1.3;
+
+        @include desktop {
+            @include fz(36);
+            order: 0;
+            margin-top: 10px;
+        }
+    }
+
+    &__sub {
+        @include fz(14);
+        margin-top: 10px;
+        color: $green01;
+
+        @include desktop {
+            @include fz(18);
+            margin-top: inherit;
+            order: -1;
+        }
+    }
+
+    &__price {
+        margin-top: 30px;
+        font-weight: bold;
+        @include fz(20);
+        text-align: end;
+        color: $green04;
+
+        @include desktop {
+            @include fz(24);
+            margin-top: 50px;
+        }
+    }
+
+    &__lead {
+        @include fz(16);
+        line-height: 1.75;
+        margin-top: 20px;
+
+        @include mobile {
+            @include fz(12);
+        }
+
+        @include desktop {
+            margin: 60px 0 30px;
+        }
+    }
+
+    &__btn {
+        margin-top: 24px;
+        max-width: 314px;
+
+        @include desktop {
+            margin: 60px 0 30px;
+        }
+
+        .e_btn {
+            width: 100%;
+        }
+    }
+}
+
+/* ===============================================
+# ポイント
+=============================================== */
+.c_point {
+    @include desktop {
+        background-color: $yellow;
+    }
+
+    &__inner {
+        @include desktop {
+            max-width: 1000px;
+            padding: 50px 0;
+            margin: 0 auto;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        background-color: $yellow;
+
+        @include desktop {
+            padding: 36px 25px;
+            flex-direction: row;
+            @include frame;
+            background-color: $green01;
+        }
+    }
+
+    &__item {
+        padding: 20px;
+        margin: 1rem;
+
+        @include touch {
+            background-color: $green01;
+            @include frame;
+        }
+
+        @include desktop {
+            width: calc(100%/3);
+            padding: 0 20px 58px;
+        }
+
+        &Title {
+            @include fz(16);
+            font-weight: bold;
+            line-height: 1.65;
+
+            @include desktop {
+                @include fz(24);
+                line-height: 1.5;
+            }
+        }
+
+        &Text {
+            margin-top: 1.5rem;
+            @include fz(16);
+            line-height: 1.5;
+
+            @include mobile {
+                @include mobile {
+                    @include fz(12);
+                }
+            }
+        }
+    }
+}
+
+//カート
+.c_cart {
+    padding-top: 25px;
+    margin: 0 auto;
+    height: 670px;
+
+    &__inner {
+        max-width: 800px;
+        margin: 0 auto;
+        margin-top: 3rem;
+    }
+
+    &__item {
+        background-color: #fff;
+        @include frame;
+
+        &+& {
+            margin-top: 6px;
+        }
+
+        &Link {
+            display: flex;
+            padding: 20px;
+            text-decoration: none;
+        }
+
+        &Thumb {
+            width: 90px;
+            height: 90px;
+            overflow: hidden;
+            flex-shrink: 0;
+            @include frame;
+            border-radius: 10px;
+            border: 2px solid $yellow;
+
+            img {
+                object-fit: cover;
+                max-width: inherit;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        &Body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-left: 20px;
+            flex: auto; //flex-grow:0; flex-shrink:1; flex-basis:auto;
+        }
+
+        &Price {
+            @include fz(18);
+            font-weight: bold;
+            text-align: end;
+        }
+    }
+
+    &__price {
+        margin: 20px;
+
+        @include desktop {
+            margin: 30px 0 0
+        }
+
+        &Item {
+            font-weight: bold;
+            line-height: 1;
+            text-align: end;
+            @include fz(30);
+
+            &+& {
+                margin-top: 16px;
+
+                @include desktop {
+                    margin-top: 20px;
+                }
+            }
+        }
+
+        &Text {
+            @include fz(16);
+            margin-right: 10px;
+            font-weight: normal;
+        }
+    }
+}
+
+//ログイン
+.c_memberLogin {
+    padding-top: 40px;
+    margin: 0 auto;
+
+    @include desktop {}
+}
+
+.c_form {
+    margin: 2rem 0;
+
+    @include desktop {
+        width: 400px;
+        margin: 60px auto 0;
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+
+        &+& {
+            margin-top: 34px;
+        }
+    }
+
+    &__label {
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        padding: 12px 5px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 0px;
+
+        &::placeholder {
+            color: #666;
+        }
+    }
+
+    button {
+        margin: 0 auto;
+        margin-top: 2rem;
+    }
+}
+
+//個別ページ
+.page {
+    .c_section {
+        width: 100vw;
+        height: initial;
+    }
+
+    .c_card {
+        &__body {
+            @include marucap;
+            border-radius: 20px;
+            padding-top: 1rem;
+
+            h3 {
+                @include fz(30);
+                padding: 1.5rem 0 1rem;
+            }
+        }
+
+        img {
+            width: 100vw;
+            @include frame;
+        }
+
+
+        .sub-title {
+            @include fz(24);
+            text-align: center;
+            @include marucap;
+            background-color: $green01;
+            padding: .8rem 0;
+        }
+
+        .text-wrapper {
+            @include marucap;
+            padding-bottom: 30px;
+        }
+
+        &__text {
+            padding: 1rem;
+
+            &Title {
+                @include marucap;
+                display: inline-block;
+                margin: .5rem 0;
+                background-color: $green05;
+            }
+        }
+    }
+}
+
+//アーカイブ
+.archive {
+    .c_section {
+        width: 100vw;
+
+        .c_cards {
+            padding-bottom: 30px;
+        }
+
+        .c_card__body {
+            display: block;
+        }
+    }
+}
+
+//アバウト
+.about-page {
+    height: initial;
+
+    .l_main {
+        display: flex;
+        height: 818px;
+
+        @include mobile {
+            flex-direction: column;
+        }
+    }
+
+    .section-container {
+        flex-direction: column;
+    }
+
+
+
+    .shop {
+        width: 40vw;
+    }
+
+    .address {
+        width: 60vw;
+        height: 316px;
+
+        h3,
+        dl {
+            @include marucap;
+            padding: 1rem 2rem;
+        }
+
+        h3 {
+            text-align: center;
+            background-color: $pink;
+        }
+
+    }
+
+    img {
+        @include frame;
+    }
+
+    .access {
+        width: 60vw;
+    }
+
+    .c_cards__item {
+
+        .map {
+            height: 430px;
+
+            iframe {
+                width: 60vw;
+                height: 430px;
+                @include frame;
+
+                @include mobile {
+                    width: 99vw;
+                    margin-left: -20vw;
+                }
+            }
+        }
+
+        img {
+            height: 748px;
+            object-fit: cover;
+            width: 40vw;
+
+            @include mobile {
+                height: 300px;
+            }
+        }
+    }
+
+    .c_section {
+        @include mobile {
+            width: 100vw;
+
+            img {
+                width: 100vw;
+            }
+        }
+    }
+}
